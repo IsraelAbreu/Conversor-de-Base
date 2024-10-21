@@ -7,15 +7,17 @@ const divResultado = document.getElementById("resultado");
 botao.addEventListener("click", ()=>{
     let numeroFinal
     const numeroAtual = +inputNumero.value;
-    const baseAtual = seletorBaseAtual.value;
-    const baseFinal = seletorBaseFinal.value;
+    const baseAtual = +seletorBaseAtual.value;
+    const baseFinal = +seletorBaseFinal.value;
 
     if (baseAtual === baseFinal) {
         numeroFinal = numeroAtual;
-    } else if (baseAtual === "Decimal") {
-        numeroFinal = numeroAtual.toString(2);
+    } else if (baseAtual === 10) {
+        numeroFinal = numeroAtual.toString(baseFinal);
+    } else {
+        const numeroConvertido = parseInt(numeroAtual, baseAtual);
+        numeroFinal = numeroConvertido.toString(baseFinal);
     }
-
-    console.log(`Base atual: ${baseAtual} Base final: ${baseFinal}, número: ${numeroFinal}`);
     
-})
+    divResultado.innerHTML  = `${numeroAtual}<sub>${baseAtual}</sub> = ${numeroFinal}<sub>${baseFinal}</sub>`
+});
