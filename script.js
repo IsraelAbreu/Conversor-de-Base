@@ -19,5 +19,7 @@ botao.addEventListener("click", ()=>{
         numeroFinal = numeroConvertido.toString(baseFinal);
     }
     
+    divResultado.classList.remove("invisivel");
+
     divResultado.innerHTML  = `${numeroAtual}<sub>${baseAtual}</sub> = ${numeroFinal}<sub>${baseFinal}</sub>`
 });
